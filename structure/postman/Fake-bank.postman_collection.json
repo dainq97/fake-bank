@@ -1,0 +1,670 @@
+{
+	"info": {
+		"_postman_id": "496ab22b-8173-47ab-9e55-79001c8dc8a0",
+		"name": "Fake-bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6897202"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Create customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nguyen van B\",\n    \"email\": \"nqdai29032@gmail.com\",\n    \"phone\": \"0981877583\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/customers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list customer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/customers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"customers"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "{\"limit\": 1, \"offset\": 0, \"include\": [{\"relation\": \"accounts\"}]}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count customer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/customers/count",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get customer detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "filter",
+								"value": "{\"include\": [{\"relation\": \"accounts\"}]}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/customers/:{id}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								":{id}"
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "87093a41-3708-4d38-b599-6ea2869958fc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "filter",
+								"value": "{\"include\": [{\"relation\": \"accounts\"}]}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/customers/:{id}/transactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								":{id}",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "{\"include\": [{\"relation\": \"accounts\"}]}",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "1a1e439a-115c-4111-9c12-e7dfdb5ceb01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update customer",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"nqdai2903@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/customers/:{id}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								":{id}"
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "87093a41-3708-4d38-b599-6ea2869958fc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/customers/:{id}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								":{id}"
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "87093a41-3708-4d38-b599-6ea2869958fc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Create Accounts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"balance\": 1000,\n    \"customerId\": \"a4664391-b21b-4b92-8565-fdef02503c8d\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/accounts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update balance",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"balance\": 10000000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/accounts/:{id}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								":{id}"
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "b93473e6-5f75-4bb3-9aa3-06c91254e3df"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/accounts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Account",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/accounts/count",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/accounts/:{id}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								":{id}"
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/accounts/:{id}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								":{id}"
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts Balance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/accounts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts Transactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/accounts/:{accountNumber}/transactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								":{accountNumber}",
+								"transactions"
+							],
+							"variable": [
+								{
+									"key": "{accountNumber}",
+									"value": "278180973"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Create Transactions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"senderAccount\": \"648409575\",\n    \"receiverAccount\": \"278180973\",\n    \"amount\": 1000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/transactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/transactions/:{id}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"transactions",
+								":{id}"
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/transactions/count",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"transactions",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/transactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
