@@ -92,7 +92,7 @@ You can see this file in `structure/postman`
 
 - Clone the repository from GitHub:
   ```bash
-  pip install foobar
+  git clone git@github.com:dainq97/fake-bank.git
   ```
 
 ## Installing Dependencies
