@@ -1,0 +1,52 @@
+Project Structure
+
+1. Model:
+   - Description: The Model layer represents the data structure and business logic of the application. It includes various model classes, each defining the schema and behavior of a specific entity or resource within the system.
+   - Purpose:
+     - Define Data Structure: Models define the structure of data entities, their attributes, relationships, and validations.
+     - Encapsulate Business Logic: Business logic related to data manipulation, validation, and processing is encapsulated within model methods.
+
+2. Controller:
+   - Description: Controllers handle incoming requests from clients and act as intermediaries between the client and the application's business logic.
+   - Purpose:
+     - Request Handling: Controllers receive incoming HTTP requests, extract relevant data, and delegate processing tasks to corresponding service methods.
+     - Response Formatting: They format and send back HTTP responses to clients, including status codes, headers, and data payloads.
+
+3. Repository:
+   - Description: Repositories serve as interfaces for interacting with data storage mechanisms, such as databases or external APIs.
+   - Purpose:
+     - Data Access Abstraction: Repositories abstract data access operations, providing methods for CRUD operations and complex queries.
+     - Database Interaction: They encapsulate database-specific logic, allowing the rest of the application to interact with data sources through a consistent interface.
+
+4. Service:
+   - Description: Services contain the application's business logic, orchestrating the execution of various tasks and operations.
+   - Purpose:
+     - Business Logic Implementation: Services implement domain-specific business rules, validations, and workflows.
+     - Application Workflow Management: They coordinate the execution of multiple operations, often involving interactions with multiple repositories and external services.
+
+Function
+1. Customer
+  - The function creates a new customer and at the same time that customer will be created a new bank account
+  - When creating a new customer, the email and phone cannot be duplicated. If they are duplicated, there will be an error message
+  - You can view details of a customer via id and see how many active accounts they have
+  - You can put the customer in an inactive state, then the accounts will also be block along with the customer
+2. Account
+  - A customer has one main account when creating a new customer but they can have many different sub-accounts, we can open additional accounts for customers.
+  - We can look up the balance of each account by account number
+  - We can look up the transactions of each account by account number
+  - We can also block any account with its id
+3. Transaction
+  - between two accounts that can transact with each other and we will store this transaction. When a transaction is opened, it will be in the processing state and if completed,
+  it will change to the completed status and the money will be transferred. is added or deducted to the corresponding account, but if there are any errors during the transaction,
+  the money will be refunded to each account and the transaction will have a failed status.
+
+4. Transaction Log
+- Here we can get the transaction history of an account to see about that account's money receiving or money transfer transactions.
+
+Additional Development Ideas
+- These are just the basic functions for this project, if we have more time we can add more functions as follows
+
+1. Authentication and Authorization: Add user authentication and authorization to ensure that only authorized employees can access functions like creating accounts, transferring funds, and accessing customer data.
+2. Automated Transactions: Create features for automated transactions, enabling users to schedule recurring transactions such as fund transfers, bill payments, or deposits into savings accounts.
+3. Notifications and Alerts: Integrate notification and alert systems to inform customers about important events such as successful transactions, low balance alerts, or alerts for large transactions.
+4. Bảo mật dữ liệu: Tăng cường bảo mật dữ liệu bằng cách sử dụng mã hóa dữ liệu và cơ chế xác thực hai yếu tố (2FA) để bảo vệ thông tin khách hàng và giao dịch.
