@@ -29,7 +29,7 @@ I have experience working with Loopback for a long time plus its great features 
 
 Customer
 
-- id: A primary key unique field used to identify each customer, using the UUID data type.
+- id (Primary key): A unique field used to identify each customer, using the UUID data type.
 - name: The name of the customer, cannot be null.
 - email: The email address of the customer, cannot be null.
 - phone: The phone number of the customer, cannot be null.
@@ -38,22 +38,49 @@ Customer
 - updated_at: The date and time when the customer is updated.
 - deleted_at: The date and time when the customer is deleted.
 
-account_id (Primary Key)
-customer_id (Foreign Key to Customer)
-balance
+Account
+
+- id (Primary Key): A unique field used to identify each account, using the UUID data type.
+- customerId (Foreign Key to Customer): A foreign key referencing the id field of the customers table.
+- number: The number associated with the account, cannot be null.
+- balance: The balance associated with the account, cannot be null.
+- isPrimary: A boolean indicating if the account is primary.
+- status: The status of the account.
+- created_at: The date and time when the account is - created, default is the current date and time.
+- updated_at: The date and time when the account is updated.
+- deleted_at: The date and time when the account is deleted.
+
 Transaction
 
-transaction_id (Primary Key)
-sender_account_id (Foreign Key to Account)
-receiver_account_id (Foreign Key to Account)
-amount
-timestamp
+- id (Primary Key): A unique field used to identify each transaction, using the UUID data type.
+- senderAccount: representing the sender's account.
+- receiverAccount: representing the receiver's account.
+- amount: The amount associated with the transaction, cannot be null and not more small 10.000
+- status: The status of the transaction.
+- createdAt: The date and time when the transaction is
+
+Tracsaction_logs
+
+- id (Primary Key): A unique identifier for each transaction log, using the UUID data type. It's the primary key of the transaction_logs table.
+- customerId (Foreign key): The ID of the customer associated with the transaction log.
+- accountId (Foreign key): The ID of the account associated with the transaction log.
+- transactionId (Foreign key): The ID of the transaction associated with the log.
+- accountNumber: The account number associated with the transaction log, which is required and unique.
+- type: The type of transaction log, which is an enum value defined in the TransactionType enum.
+- description: An optional description for the transaction log.
+- createdAt: The date and time when the transaction log is created, with a default value of the current date and time.
+
+##### Here I will briefly list it, if you want to see the details, go to the path `structure/database` in the project folder
 
 # Project structure
+
+##### this is too long, see this part in the path `structure/class` in the project folder
 
 # API documents
 
 There are quite a lot of APIs so listing them here is too long, I will give you a json file to import it into postman on your personal environment and can test it more easily.
+
+You can see this file in `structure/postman`
 
 # Installing and running
 
